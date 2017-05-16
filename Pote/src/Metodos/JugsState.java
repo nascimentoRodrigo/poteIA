@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Main;
+package Metodos;
 
 import aima.core.agent.Action;
 import aima.core.agent.impl.DynamicAction;
@@ -26,7 +26,6 @@ public class JugsState {
     public Action DESPEJAR_5L_3L = new DynamicAction("DESPEJAR_5L_3L");
     
     
-    
     public JugsState() {
         state = new int[2];
         state[0] = 5;
@@ -35,8 +34,8 @@ public class JugsState {
     
     
     public void setState(int j5, int j3) {
-        state[0] = j5;
-        state[1] = j3;
+        state[0]=j5;
+        state[1]=j3;
     }
     
     public int[] getState() {
