@@ -22,21 +22,16 @@ import java.util.List;
  */
 public class Principal {
     
-    public static void main (String args){
-        
-    }
-    
-    public void testJugsCutOff() throws Exception {
+    public static void main (String args) throws Exception{
         Problem problem = new Problem(new JugsState(), JugsFunctionFactory.getActionsFunction(),
         JugsFunctionFactory.getResultFunction(), new JugsGoalTest());
         
         DepthLimitedSearch search = new DepthLimitedSearch(10);
         SearchAgent agent = new SearchAgent(problem, search);
         List<Action> actions = agent.getActions();
-        
     }
     
-    public void printGeneralActions(List<Action> actions){
+        public void printGeneralActions(List<Action> actions){
         Iterator<Action> ai = actions.iterator();
         while(ai.hasNext()){
             Action a = ai.next();
@@ -46,4 +41,5 @@ public class Principal {
             System.out.println(((DynamicAction) a).getName());
         }
     }
+    
 }
