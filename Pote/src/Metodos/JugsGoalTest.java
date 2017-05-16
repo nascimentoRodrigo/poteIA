@@ -5,6 +5,7 @@
  */
 package Metodos;
 
+import Main.JugsState;
 import aima.core.search.framework.problem.GoalTest;
 
 /**
