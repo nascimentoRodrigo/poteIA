@@ -2,7 +2,7 @@ package Main;
 
 import Metodos.JugsFunctionFactory;
 import Metodos.JugsGoalTest;
-import Metodos.JugsState;
+import Main.JugsState;
 import aima.core.agent.Action;
 import aima.core.agent.impl.DynamicAction;
 import aima.core.search.framework.SearchAgent;

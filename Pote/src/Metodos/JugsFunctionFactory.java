@@ -5,6 +5,7 @@
  */
 package Metodos;
 
+import Main.JugsState;
 import aima.core.agent.Action;
 import aima.core.search.framework.problem.ActionsFunction;
 import aima.core.search.framework.problem.ResultFunction;
