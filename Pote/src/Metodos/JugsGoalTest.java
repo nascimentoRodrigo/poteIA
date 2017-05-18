@@ -16,7 +16,7 @@ public class JugsGoalTest implements GoalTest {
     //objetivo, pote de 5L armazenar 3L
     private int goalA = 5;   //especificar objetos
     private int goalB = 3;
-    
+
     @Override
     public boolean isGoalState(Object state) {
         JugsState currentState = (JugsState) state;
@@ -38,7 +38,5 @@ public class JugsGoalTest implements GoalTest {
     public void setGoalB(int goalB) {
         this.goalB = goalB;
     }
-    
-    
     
 }

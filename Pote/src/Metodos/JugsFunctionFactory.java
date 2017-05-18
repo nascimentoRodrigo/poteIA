@@ -19,6 +19,7 @@ import java.util.Set;
  * @author Rodrigo Nascimento
  */
 public class JugsFunctionFactory {
+    
     private static ActionsFunction _actionsFunction = null;
     private static ResultFunction _resultFunction = null;
 
@@ -43,20 +44,20 @@ public class JugsFunctionFactory {
 
             Set<Action> actions = new LinkedHashSet<Action>();
 
-            if (board.state[0]>0) { // pote de 5L esta cheio
+            if (board.state[0] > 0) { // pote de 5L esta cheio
                 actions.add(board.ESVAZIAR_5L);
             }
-            if (board.state[1]>0) { // pote de 3L esta cheio
+            if (board.state[1] > 0) { // pote de 3L esta cheio
                 actions.add(board.ESVAZIAR_3L);
             }
             if(board.state[0] < 5){
                 actions.add(board.COMPLETAR_5L);
             }
-            if((board.state[0] == 5) && (board.state[1] < 3)){
+            if(board.state[1] < 3){
                 actions.add(board.COMPLETAR_3L);
             }
-            if ((board.state[0] + board.state[1]) >= 5 && board.state[1] > 0) {
-                actions.add(board.DESPEJAR_3L_5L);
+            if (((board.state[0] + board.state[1]) >= 5) && (board.state[1] > 0)) {
+                actions.add(board.DESPEJAR_3L_5L);//(4, y - (4 - x))
             }
             if ((board.state[0] + board.state[1]) >= 3 && board.state[1] > 0) {
                 actions.add(board.DESPEJAR_5L_3L);//(x -(3-y),3)
