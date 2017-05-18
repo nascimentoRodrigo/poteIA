@@ -16,6 +16,7 @@ import java.util.Set;
  *
  * @author jcarlos
  * @author Renannr
+ * @author Rodrigo Nascimento
  */
 public class JugsFunctionFactory {
     private static ActionsFunction _actionsFunction = null;
@@ -67,17 +68,21 @@ public class JugsFunctionFactory {
     private static class JugsResultFunction implements ResultFunction {
         public Object result(Object s, Action a) {
             JugsState board = (JugsState) s;
-
+            // x == 5
+            // y == 3
+            // regra nº 6
             if (board.ESVAZIAR_3L.equals(a)) {
                 JugsState newBoard = new JugsState();
                 newBoard.state[0] = board.state[0];
                 newBoard.state[1] = 0; //esvaziar 3L
                 return newBoard;
+            // regra nº 5 (0, y)
             } else if (board.ESVAZIAR_5L.equals(a)) {
                 JugsState newBoard = new JugsState();
                 newBoard.state[0] = 0; //esvaziar 5L
                 newBoard.state[1] = board.state[1];
                 return newBoard;
+            // regra nº 
             } else if (board.COMPLETAR_3L.equals(a)) {
                 JugsState newBoard = new JugsState();
                 newBoard.state[0] = board.state[0];
