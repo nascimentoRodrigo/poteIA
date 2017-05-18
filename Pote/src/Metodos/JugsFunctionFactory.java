@@ -37,6 +37,7 @@ public class JugsFunctionFactory {
     }
 
     private static class JugsActionsFunction implements ActionsFunction {
+        @Override
         public Set<Action> actions(Object state) {
             JugsState board = (JugsState) state;
 
@@ -48,17 +49,29 @@ public class JugsFunctionFactory {
             if (board.state[1]>0) { // pote de 3L esta cheio
                 actions.add(board.ESVAZIAR_3L);
             }
+            if(board.state[0] < 5){
+                actions.add(board.COMPLETAR_5L);
+            }
+            if((board.state[0] == 5) && (board.state[1] < 3)){
+                actions.add(board.COMPLETAR_3L);
+            }
             if ((board.state[0] + board.state[1]) >= 5 && board.state[1] > 0) {
-                actions.add(board.COMPLETAR_3L);//regra=7; ação=(5,y - (5-x));
+                actions.add(board.DESPEJAR_3L_5L);
             }
             if ((board.state[0] + board.state[1]) >= 3 && board.state[1] > 0) {
-                actions.add(board.ESVAZIAR_3L);//(x -(3-y),3)
+                actions.add(board.DESPEJAR_5L_3L);//(x -(3-y),3)
             }
-            if ((board.state[0] + board.state[1]) <= 5 && board.state[1] > 0) {
-                actions.add(board.ESVAZIAR_3L);//(x+y,0)
+            if (((board.state[0] + board.state[1]) <= 5) && (board.state[1] > 0)) {
+                actions.add(board.DESPEJAR_3L_5L);//(x+y,0)
+                if(board.state[1] != 0){
+                    actions.add(board.ESVAZIAR_3L);
+                }
             }
-            if ((board.state[0] + board.state[1]) <= 3 && board.state[1] > 0) {
-                actions.add(board.ESVAZIAR_3L);//(0,x+y)
+            if (((board.state[0] + board.state[1]) <= 3) && (board.state[1] > 0)) {
+                actions.add(board.DESPEJAR_5L_3L);//(0,x+y)
+                if(board.state[0] != 0 ){
+                    actions.add(board.ESVAZIAR_5L);
+                }
             }
 
             return actions;
@@ -66,6 +79,7 @@ public class JugsFunctionFactory {
     }
 
     private static class JugsResultFunction implements ResultFunction {
+        @Override
         public Object result(Object s, Action a) {
             JugsState board = (JugsState) s;
             // x == 5
@@ -93,6 +107,7 @@ public class JugsFunctionFactory {
                 newBoard.state[0] = 5; //completa 5l
                 newBoard.state[1] = board.state[1];
                 return newBoard;
+                //começar a mecher aqui
             } else if (board.DESPEJAR_3L_5L.equals(a)) {
                 /* precisamos rever esse despeja um em outro */
                 JugsState newBoard = new JugsState();

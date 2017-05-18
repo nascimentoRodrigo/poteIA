@@ -14,11 +14,31 @@ import aima.core.search.framework.problem.GoalTest;
  */
 public class JugsGoalTest implements GoalTest {
     //objetivo, pote de 5L armazenar 3L
-    int goalA = 5;   //especificar objetos
-    int goalB = 3;
+    private int goalA = 5;   //especificar objetos
+    private int goalB = 3;
     
+    @Override
     public boolean isGoalState(Object state) {
         JugsState currentState = (JugsState) state;
         return (currentState.state[0]==goalA) && (currentState.state[1]==goalB);
     }
+
+    public int getGoalA() {
+        return goalA;
+    }
+
+    public void setGoalA(int goalA) {
+        this.goalA = goalA;
+    }
+
+    public int getGoalB() {
+        return goalB;
+    }
+
+    public void setGoalB(int goalB) {
+        this.goalB = goalB;
+    }
+    
+    
+    
 }

@@ -16,6 +16,7 @@ public class JugsState {
     
     public int state[];  //vetor com 2 inteiros - pote de 5 e de 3
     
+    
     public Action ESVAZIAR_5L    = new DynamicAction("ESVAZIAR_5L");
     public Action ESVAZIAR_3L    = new DynamicAction("ESVAZIAR_3L");
     public Action COMPLETAR_3L   = new DynamicAction("COMPLETAR_3L");
