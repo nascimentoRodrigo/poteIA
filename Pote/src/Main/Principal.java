@@ -1,21 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package principais;
+package Main;
 
+import Metodos.JugsFunctionFactory;
+import Metodos.JugsGoalTest;
+import Main.JugsState;
 import aima.core.agent.Action;
 import aima.core.agent.impl.DynamicAction;
 import aima.core.search.framework.SearchAgent;
 import aima.core.search.framework.problem.Problem;
 import aima.core.search.uninformed.DepthLimitedSearch;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+//import org.junit.Assert;
 
 /**
  *
  * @author nascimento
+ * @author FranciscoTavares
+ * @author jcarlos
+ * @author Renannr
  */
 public class Principal {
     
